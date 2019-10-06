@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  sensor_size: MyString
+  mount: MyString
+  film: false
+  reflex: false
+  interchangeable: false
+
+two:
+  manufacturer: MyString
+  sensor_size: MyString
+  mount: MyString
+  film: false
+  reflex: false
+  interchangeable: false

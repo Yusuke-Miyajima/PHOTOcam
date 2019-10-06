@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PHOTOcam</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <div class="nav navbar-inverse">
+    <div class="container-fluid">
+      <h1 class="text-center centrer-block text-muted">PHOTOcam</h1>
+    </div>
+  </div>
+  <%= yield %>
+</body>
+<footer>
+  <div class="nav navbar-inverse">
+    <div class="container">
+    <p class="text-center text-muted">PHOTOcam</p>
+    </div>
+  </div>
+</footer>
+</html>

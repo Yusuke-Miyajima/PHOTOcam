@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  caption: MyText
+  body: MyString
+  lens: MyString
+  genre: MyString
+  apeture: 9.99
+  shutter_speed: 1
+  iso_setting: 1
+  favorite_number: 1
+  comment_number: 1
+
+two:
+  title: MyString
+  caption: MyText
+  body: MyString
+  lens: MyString
+  genre: MyString
+  apeture: 9.99
+  shutter_speed: 1
+  iso_setting: 1
+  favorite_number: 1
+  comment_number: 1
