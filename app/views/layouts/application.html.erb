@@ -13,6 +13,19 @@
   <div class="nav navbar-inverse">
     <div class="container-fluid">
       <h1 class="text-center centrer-block text-muted">PHOTOcam</h1>
+      <nav class="nav navbar-nav navbar-left">
+        <li><%= form_tag() do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag "検索"%>
+          <% end %>
+        </li>
+        <li><%= link_to "カメラ作例", bodies_path %></li>
+        <li><%= link_to "レンズ作例", lenses_path %></li>
+      </nav>
+      <nav class="nav navbar-nav navbar-right">
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+      </nav>
     </div>
   </div>
   <%= yield %>

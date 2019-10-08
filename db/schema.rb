@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_074345) do
+ActiveRecord::Schema.define(version: 2019_10_07_052537) do
 
   create_table "bodies", force: :cascade do |t|
     t.string "manufacturer"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_074345) do
     t.boolean "interchangeable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -31,6 +32,13 @@ ActiveRecord::Schema.define(version: 2019_10_05_074345) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "detail_genres", force: :cascade do |t|
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "rough_genre_id"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "photo_id"
@@ -38,17 +46,39 @@ ActiveRecord::Schema.define(version: 2019_10_05_074345) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lens", force: :cascade do |t|
+    t.string "name"
+    t.string "manufacturer"
+    t.boolean "full_frame_support"
+    t.string "mount"
+    t.decimal "minimum_aperture", precision: 3, scale: 1
+    t.decimal "maximum_aperture", precision: 3, scale: 1
+    t.integer "minimum_focal_length"
+    t.integer "maximum_focal_length"
+    t.string "type"
+    t.string "focus_system"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "caption"
-    t.string "body"
-    t.string "lens"
-    t.string "genre"
+    t.string "body_id"
+    t.string "lens_id"
+    t.string "genre_id"
     t.decimal "apeture", precision: 3, scale: 1
     t.integer "shutter_speed"
     t.integer "iso_setting"
     t.integer "favorite_number"
     t.integer "comment_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "user_id"
+  end
+
+  create_table "rough_genres", force: :cascade do |t|
+    t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

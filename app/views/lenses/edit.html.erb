@@ -1,0 +1,22 @@
+<div class="container">
+	<h2>レンズ情報編集</h2>
+	<hr>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= form_for @lens, url: lens_path(@lens.id), method: :patch do |f| %>
+			<%= f.text_field :name, autofocus: true, class:"form-control", autocomplete: "on" %>
+			<%= f.text_field :manufacturer, class:"form-control", autocomplete: "on" %>
+<%#			<%= f.text_field :full_frame_support, class:"form-control", autocomplete: "on" %>
+			<%= f.text_field :mount, class:"form-control", autocomplete: "on" %>
+<%#			<%= f.text_field :maximum_aperture, class:"form-control", autocomplete: "on" %>
+<%#			<%= f.text_field :minimum_aperture, class:"form-control", autocomplete: "on" %>
+<%#			<%= f.text_field :maximum_focal_length, class:"form-control", autocomplete: "on" %>
+<%#			<%= f.text_field :minimum_focal_length, class:"form-control", autocomplete: "on" %>
+			<%= f.text_field :type, class:"form-control", autocomplete: "on" %>
+			<%= f.text_field :focus_system, class:"form-control", autocomplete: "on" %>
+			<%= f.submit "更新" %>
+			<%= end %>
+			<%= link_to "戻る", :back %>
+		</div>
+	</div>
+</div>

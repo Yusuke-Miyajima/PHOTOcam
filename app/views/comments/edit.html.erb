@@ -1,0 +1,13 @@
+<div class="container">
+	<h2>コメント編集</h2>
+	<hr>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= form_for @comment, url: photo_comment_path(@comment.photo_id, @comment.id), method: :patch do |f| %>
+			<%= f.text_field :comment, autofocus: true, class:"form-control", autocomplete: "on" %>
+			<%= f.submit "更新" %>
+			<%= end %>
+			<%= link_to "戻る", :back %>
+		</div>
+	</div>
+</div>

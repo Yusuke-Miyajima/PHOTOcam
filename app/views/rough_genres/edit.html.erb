@@ -1,0 +1,13 @@
+<div class="container">
+	<h2>ジャンルグループ編集</h2>
+	<hr>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= form_for @genre, url: rough_genre_path(@genre.id), method: :patch do |f| %>
+			<%= f.text_field :genre, autofocus: true, class:"form-control", autocomplete: "on" %>
+			<%= f.submit "更新" %>
+			<% end %>
+			<%= link_to "戻る", :back %>
+		</div>
+	</div>
+</div>

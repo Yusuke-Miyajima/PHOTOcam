@@ -1,0 +1,2 @@
+class RoughGenresController < ApplicationController
+end
