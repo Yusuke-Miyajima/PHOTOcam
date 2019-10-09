@@ -3,14 +3,23 @@
 	<hr>
 	<div class="row">
 		<div class="col-xs-3">
-			<%= form_for @body, url: body_path(@body.id), method: :patch do |f| %>
-			<%= f.text_field :name, autofocus: true, class:"form-control", autocomplete: "on" %>
-			<%= f.text_field :manufacturer, class:"form-control", autocomplete: "on" %>
-			<%= f.text_field :sensor_size, class:"form-control", autocomplete: "on" %>
-			<%= f.text_field :mount, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :film, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :reflex, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :interchangeable, class:"form-control", autocomplete: "on" %>
+			<%= form_with @body do |f| %><table>
+				<tbody>
+					<tr><%= f.text_field :name, autofocus: true, class:"form-control", autocomplete: "on" %></tr>
+					<tr><%= f.text_field :manufacturer, class:"form-control", autocomplete: "on" %></tr>
+					<tr><%= f.text_field :sensor_size, class:"form-control", autocomplete: "on" %></tr>
+					<tr><%= f.text_field :mount, class:"form-control", autocomplete: "on" %></tr>
+					<tr>
+						<td><%= "フィルム", %></td>
+					</tr>
+					<tr>
+						<td><%= "ミラーレス機", %></td>
+					</tr>
+					<tr>
+						<td><%= "レンズ交換不可", %></td>
+					</tr>
+				</tbody>
+			</table>
 			<%= f.submit "更新" %>
 			<%= end %>
 			<%= link_to "戻る", :back %>

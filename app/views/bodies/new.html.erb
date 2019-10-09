@@ -1,0 +1,33 @@
+<div class="container">
+	<h2>ボディ</h2>
+	<hr>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= form_for @body do |f| %>
+			<%= text_field :name %>
+			<%= text_field :manufacturer %>
+			<%= text_field :sensor_size %>
+			<%= text_field :mount %>
+<%#			<%= text_field :film %>
+<%#			<%= text_field :reflex %>
+<%#			<%= text_field :interchangeable %>
+			<%= f.submit "ボディ追加" %>
+			<%= end %>
+			<%= link_to "戻る", :back %>
+		</div>
+	</div>
+	<div class="row">
+		<table>
+			<tbody>
+				<tr>
+					<% @bodies.each do |body| %>
+					<td class="col-xs-4">
+						<%= body %>
+						<%= link_to "編集", edit_body_path(body.id) %>
+					</td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

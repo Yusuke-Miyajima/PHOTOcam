@@ -1,0 +1,36 @@
+<div class="container">
+	<h2>レンズ</h2>
+	<hr>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= form_for @lens do |f| %>
+			<%= text_field :name %>
+			<%= text_field :manufacturer %>
+<%#			<%= text_field :full_frame_support %>
+			<%= text_field :mount %>
+<%#			<%= text_field :minimum_aperture %>
+<%#			<%= text_field :maximum_aperture %>
+<%#			<%= text_field :minimum_focal_length %>
+<%#			<%= text_field :maximum_focal_length %>
+			<%= text_field :type %>
+			<%= text_field :focus_system %>
+			<%= f.submit "レンズ追加" %>
+			<%= end %>
+			<%= link_to "戻る", :back %>
+		</div>
+	</div>
+	<div class="row">
+		<table>
+			<tbody>
+				<tr>
+					<% @lenses.each do |lens| %>
+					<td class="col-xs-4">
+						<%= lens %>
+						<%= link_to "編集", edit_lens_path(lens.id) %>
+					</td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

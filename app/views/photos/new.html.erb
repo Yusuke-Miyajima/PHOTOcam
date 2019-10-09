@@ -1,0 +1,14 @@
+<div class="container">
+	<h2>新規投稿</h2>
+	<hr>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= form_with model: @photo, local: true do |f| %>
+			<%= f.file_field :image %>
+			<%= f.text_field :title %>
+			<%= f.text_area :caption %>
+			<%= f.submit %>
+			<% end %>
+		</div>
+	</div>
+</div>
