@@ -1,0 +1,15 @@
+<div class="container">
+	<h2>レンズ一覧</h2>
+	<hr>
+	<div class="row">
+		<table>
+			<tbody>
+				<tr>
+					<% @lenses.each do |lens| %>
+					<td><%= link_to "#{lens.name}", lens_path(@lens.id) %></td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

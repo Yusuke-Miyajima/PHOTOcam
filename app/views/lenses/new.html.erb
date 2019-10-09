@@ -1,23 +1,47 @@
 <div class="container">
-	<h2>レンズ</h2>
+	<h2>レンズ追加</h2>
 	<hr>
 	<div class="row">
-		<div class="col-xs-3">
-			<%= form_for @lens do |f| %>
-			<%= text_field :name %>
-			<%= text_field :manufacturer %>
-<%#			<%= text_field :full_frame_support %>
-			<%= text_field :mount %>
-<%#			<%= text_field :minimum_aperture %>
-<%#			<%= text_field :maximum_aperture %>
-<%#			<%= text_field :minimum_focal_length %>
-<%#			<%= text_field :maximum_focal_length %>
-			<%= text_field :type %>
-			<%= text_field :focus_system %>
-			<%= f.submit "レンズ追加" %>
-			<%= end %>
-			<%= link_to "戻る", :back %>
-		</div>
+		<table>
+			<tbody>
+				<%= form_for(@lens, url: '/lenses') do |f| %>
+				<tr>
+					<td>レンズ名:</td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td>メーカー:</td>
+					<td><%= f.text_field :manufacturer %></td>
+				</tr>
+				<tr>
+					<td>マウント:</td>
+					<td><%= f.text_field :mount %></td>
+				</tr>
+				<tr>
+					<td>レンズタイプ(単焦点, 魚眼, etc.):</td>
+					<td><%= f.text_field :type %></td>
+				</tr>
+				<tr>
+					<td>AF,MF,AF/MF:</td>
+					<td><%= f.text_field :focus_system %></td>
+				</tr>
+				<tr>
+					<td>F値:</td>
+					<td><%= f.text_field :minimum_aperture %>〜<%= f.text_field :maximum_aperture %></td>
+				</tr>
+				<tr>
+					<td>焦点距離:</td>
+					<td><%= f.text_field :minimum_focal_length %>mm〜<%= f.text_field :maximum_focal_length %>mm</td>
+				</tr>
+				<tr>
+					<td><label><%= f.radio_button :full_frame_support, "true" %>フルサイズ対応</label>
+						<label><%= f.radio_button :full_frame_support, "false" %>APS-C専用</label></td>
+				</tr>
+				<tr><td><%= f.submit "レンズ追加" %></td></tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= link_to "戻る", :back %>
 	</div>
 	<div class="row">
 		<table>

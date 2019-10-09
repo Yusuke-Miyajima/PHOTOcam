@@ -1,0 +1,15 @@
+<div class="container">
+	<h2>ボディ一覧</h2>
+	<hr>
+	<div class="row">
+		<table>
+			<tbody>
+				<tr>
+					<% @bodies.each do |body| %>
+					<td><%= link_to "#{body.name}", body_path(@body.id) %></td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

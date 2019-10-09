@@ -2,13 +2,26 @@
 	<h2>新規投稿</h2>
 	<hr>
 	<div class="row">
-		<div class="col-xs-3">
-			<%= form_with model: @photo, local: true do |f| %>
-			<%= f.file_field :image %>
-			<%= f.text_field :title %>
-			<%= f.text_area :caption %>
-			<%= f.submit %>
-			<% end %>
-		</div>
+		<%= form_with model: @photo, local: true do |f| %>
+		<table>
+			<tbody>
+				<tr>
+					<td><p>写真を選択してください</p></td>
+					<td><%= f.file_field :image %></td>
+				</tr>
+				<tr>
+					<td>タイトル</td>
+					<td><%= f.text_field :title %></td>
+				</tr>
+				<tr>
+					<td>キャプション</td>
+					<td><%= f.text_area :caption %></td>
+				</tr>
+				<tr>
+					<td><%= f.submit %></td>
+				</tr>
+			</tbody>
+		</table>
+		<% end %>
 	</div>
 </div>

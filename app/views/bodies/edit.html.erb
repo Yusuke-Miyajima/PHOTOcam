@@ -10,18 +10,24 @@
 					<tr><%= f.text_field :sensor_size, class:"form-control", autocomplete: "on" %></tr>
 					<tr><%= f.text_field :mount, class:"form-control", autocomplete: "on" %></tr>
 					<tr>
-						<td><%= "フィルム", %></td>
-					</tr>
-					<tr>
-						<td><%= "ミラーレス機", %></td>
-					</tr>
-					<tr>
-						<td><%= "レンズ交換不可", %></td>
-					</tr>
+					<td><label><%= f.radio_button :film, "true" %>フィルムカメラ</label>
+						<label><%= f.radio_button :film, "false" %>デジタルカメラ</label>
+					</td>
+				</tr>
+				<tr>
+					<td><label><%= f.radio_button :reflex, "true" %>レフ機</label>
+						<label><%= f.radio_button :reflex, "false" %>ミラーレス機</label>
+					</td>
+				</tr>
+				<tr>
+					<td><label><%= f.radio_button :interchangeable, "true" %>レンズ交換式カメラ</label>
+						<label><%= f.radio_button :interchangeable, "false" %>レンズ交換不可</label>
+					</td>
+				</tr>
 				</tbody>
 			</table>
 			<%= f.submit "更新" %>
-			<%= end %>
+			<% end %>
 			<%= link_to "戻る", :back %>
 		</div>
 	</div>

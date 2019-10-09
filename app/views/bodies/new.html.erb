@@ -1,20 +1,46 @@
 <div class="container">
-	<h2>ボディ</h2>
+	<h2>ボディ追加</h2>
 	<hr>
 	<div class="row">
-		<div class="col-xs-3">
-			<%= form_for @body do |f| %>
-			<%= text_field :name %>
-			<%= text_field :manufacturer %>
-			<%= text_field :sensor_size %>
-			<%= text_field :mount %>
-<%#			<%= text_field :film %>
-<%#			<%= text_field :reflex %>
-<%#			<%= text_field :interchangeable %>
-			<%= f.submit "ボディ追加" %>
-			<%= end %>
-			<%= link_to "戻る", :back %>
-		</div>
+		<table>
+			<tbody>
+				<%= form_for(@body, url: '/bodies') do |f| %>
+				<tr>
+					<td>ボディ名:</td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td>メーカー:</td>
+					<td><%= f.text_field :manufacturer %></td>
+				</tr>
+				<tr>
+					<td>センサーサイズ:</td>
+					<td><%= f.text_field :sensor_size %></td>
+				</tr>
+				<tr>
+					<td>マウント:</td>
+					<td><%= f.text_field :mount %></td>
+				</tr>
+				<tr>
+					<td><label><%= f.radio_button :film, "true" %>フィルムカメラ</label>
+						<label><%= f.radio_button :film, "false" %>デジタルカメラ</label>
+					</td>
+				</tr>
+				<tr>
+					<td><label><%= f.radio_button :reflex, "true" %>レフ機</label>
+						<label><%= f.radio_button :reflex, "false" %>ミラーレス機</label>
+					</td>
+				</tr>
+				<tr>
+					<td><label><%= f.radio_button :interchangeable, "true" %>レンズ交換式カメラ</label>
+						<label><%= f.radio_button :interchangeable, "false" %>レンズ交換不可</label>
+					</td>
+				</tr>
+				<tr><td><% f.submit "ボディ追加" %></td></tr>
+				<% end %>
+			</tbody>
+		</table>
+		<%= link_to "戻る", :back %>
 	</div>
 	<div class="row">
 		<table>
