@@ -4,18 +4,39 @@
 	<div class="row">
 		<div class="col-xs-3">
 			<%= form_for @lens, url: lens_path(@lens.id), method: :patch do |f| %>
-			<%= f.text_field :name, autofocus: true, class:"form-control", autocomplete: "on" %>
-			<%= f.text_field :manufacturer, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :full_frame_support, class:"form-control", autocomplete: "on" %>
-			<%= f.text_field :mount, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :maximum_aperture, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :minimum_aperture, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :maximum_focal_length, class:"form-control", autocomplete: "on" %>
-<%#			<%= f.text_field :minimum_focal_length, class:"form-control", autocomplete: "on" %>
-			<%= f.text_field :type, class:"form-control", autocomplete: "on" %>
-			<%= f.text_field :focus_system, class:"form-control", autocomplete: "on" %>
-			<%= f.submit "更新" %>
-			<%= end %>
+			<table>
+				<tbody>
+					<tr>
+						<td><%= f.text_field :name, autofocus: true, class:"form-control", autocomplete: "on" %></td>
+					</tr>
+					<tr>
+						<td><%= f.text_field :manufacturer, class:"form-control", autocomplete: "on" %></td>
+					</tr>
+					<tr>
+						<td><%= f.text_field :mount, class:"form-control", autocomplete: "on" %></td>
+					</tr>
+					<tr>
+						<td><%= f.text_field :type, class:"form-control", autocomplete: "on" %></td>
+					</tr>
+					<tr>
+						<td><%= f.text_field :focus_system, class:"form-control", autocomplete: "on" %></td>
+					</tr>
+					<tr>
+						<td>F値:</td>
+						<td><%= f.text_field :minimum_aperture %>〜<%= f.text_field :maximum_aperture %></td>
+					</tr>
+					<tr>
+						<td>焦点距離:</td>
+						<td><%= f.text_field :minimum_focal_length %>mm〜<%= f.text_field :maximum_focal_length %>mm</td>
+					</tr>
+					<tr>
+						<td><label><%= f.radio_button :full_frame_support, "true" %>フルサイズ対応</label>
+							<label><%= f.radio_button :full_frame_support, "false" %>APS-C専用</label></td>
+					</tr>
+					<tr><td><%= f.submit "更新" %></td></tr>
+				</tbody>
+			</table>
+			<% end %>
 			<%= link_to "戻る", :back %>
 		</div>
 	</div>

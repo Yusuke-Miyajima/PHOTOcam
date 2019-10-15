@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :bodies
   resources :lenses
 
-  resources :rough_genres do
+  resources :rough_genres, only: [:new, :create, :edit, :update, :destroy] do
     resources :detail_genres
   end
 

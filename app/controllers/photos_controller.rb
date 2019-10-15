@@ -10,10 +10,6 @@ class PhotosController < ApplicationController
 
 	def create
 		@photo = Photo.new(photo_params)
-		@photo.body_id = EXIFR::JPEG::new(@photo.image).model
-		@photo.aperture = EXIFR::JPEG::new(@photo.image).f_number.to_f
-		@photo.shutter_speed = EXIFR::JPEG::new(@photo.image).exposure_time.to_s
-		@photo.iso_setting = EXIFR::JPEG::new(@photo.image).iso_speed_ratings
 		if @photo.save
 			redirect_to root_path
 		else

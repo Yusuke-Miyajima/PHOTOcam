@@ -2,9 +2,9 @@
 	<h2>レンズ追加</h2>
 	<hr>
 	<div class="row">
+		<%= form_for(@lens, url: '/lenses') do |f| %>
 		<table>
 			<tbody>
-				<%= form_for(@lens, url: '/lenses') do |f| %>
 				<tr>
 					<td>レンズ名:</td>
 					<td><%= f.text_field :name %></td>
@@ -52,9 +52,9 @@
 						<%= lens %>
 						<%= link_to "編集", edit_lens_path(lens.id) %>
 					</td>
-					<% end %>
 				</tr>
 			</tbody>
 		</table>
+		<% end %>
 	</div>
 </div>

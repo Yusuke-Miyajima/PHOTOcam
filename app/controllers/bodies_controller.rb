@@ -1,5 +1,4 @@
 class BodiesController < ApplicationController
-
 	def index
 		@bodies = Body.all
 	end
@@ -46,5 +45,4 @@ class BodiesController < ApplicationController
 	def body_params
 		params.require(:body).permit(:name, :manufacturer, :sensor_size, :mount, :film, :reflex, :interchangeable)
 	end
-
 end
