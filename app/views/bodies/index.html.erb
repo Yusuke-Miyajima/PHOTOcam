@@ -1,12 +1,14 @@
 <div class="container">
 	<h2>ボディ一覧</h2>
+	<%= link_to "ボディ追加", new_body_path, class:"btn btn-success btn-sm" %>
 	<hr>
 	<div class="row">
-		<table>
+		<%= notice %>
+		<table class="table table-bordered">
 			<tbody>
 				<tr>
 					<% @bodies.each do |body| %>
-					<td><%= link_to "#{body.name}", body_path(@body.id) %></td>
+					<td><%= link_to "#{body.name}", body_path(body.id) %></td>
 					<% end %>
 				</tr>
 			</tbody>

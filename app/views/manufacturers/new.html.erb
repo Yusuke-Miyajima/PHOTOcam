@@ -1,0 +1,21 @@
+<div class="container">
+	<h2>メーカー新規登録</h2>
+	<hr>
+	<div class="row">
+		<%= notice %>
+		<%= form_for @manufacturer do |f| %>
+		<%= f.text_field :manufacturer %>
+		<%= f.submit %>
+		<% end %>
+	</div>
+	<h3>メーカー一覧</h3>
+	<% @manufacturers.each do |manufacturer| %>
+	<div class="pull-left table-responsive col-xs-3">
+		<table class="table table-borderd">
+			<tr>
+				<td><%= link_to "#{manufacturer.manufacturer}", edit_manufacturer_path(manufacturer.id) %></td>
+			</tr>
+		</table>
+	</div>
+	<% end %>
+</div>

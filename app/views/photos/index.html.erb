@@ -1,10 +1,20 @@
 <div class="container">
 	<div class="row">
+		<%= notice %>
 		<% @photos.each do |photo| %>
-		<%= image_tag @photo.image %>
-		<% end %>
-		<div class="col-xs-7 col-xs-offset-5">
-<%#			<%= paginate @photos, class:"paginate" %>
-		</div>
+		<table>
+			<tbody>
+				<tr>
+					<td><%= image_tag photo.image, size:"100x100" %><br>
+						<%= link_to "#{photo.title}" ,photo_path(photo.id) %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</li>
+	<% end %>
+	<div class="col-xs-7 col-xs-offset-5">
+		<%#			<%= paginate @photos, class:"paginate" %>
 	</div>
+</div>
 </div>

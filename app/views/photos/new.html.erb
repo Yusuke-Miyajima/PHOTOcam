@@ -2,11 +2,11 @@
 	<h2>新規投稿</h2>
 	<hr>
 	<div class="row">
-		<%= form_with model: @photo, local: true do |f| %>
+		<%= form_for @photo, url: photos_path do |f| %>
 		<table>
 			<tbody>
 				<tr>
-					<td><p>写真を選択してください</p></td>
+					<td>写真を選択してください</td>
 					<td><%= f.file_field :image %></td>
 				</tr>
 				<tr>
@@ -16,6 +16,20 @@
 				<tr>
 					<td>キャプション</td>
 					<td><%= f.text_area :caption %></td>
+				</tr>
+				<tr>
+					<td><%= f.collection_select :body_id, @bodies, :id, :name %></td>
+					<td><%= link_to "ボディ追加", new_body_path, class:"btn btn-default btn-sm" %></td>
+				</tr>
+				<tr>
+					<td><%= f.collection_select :lens_id, @lenses, :id, :name %></td>
+					<td><%= link_to "レンズ追加", new_lense_path, class:"btn btn-default btn-sm" %>
+					</td>
+				</tr>
+				<tr>
+					<td><%= f.grouped_collection_select(:detail_genre_id, RoughGenre.all, :detail_genres, :genre, :id, :genre) %></td>
+					<td><%= link_to "ジャンル追加", new_rough_genre_path, class:"btn btn-default btn-sm" %>
+					</td>
 				</tr>
 				<tr>
 					<td><%= f.submit %></td>

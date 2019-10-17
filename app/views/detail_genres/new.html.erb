@@ -1,13 +1,13 @@
 <div class="container">
-	<h2>ジャンル</h2>
+	<h2>ジャンル追加</h2>
 	<hr>
 	<div class="row">
 		<div class="col-xs-3">
-			<%# どのジャンルグループに属しているかの表示 %>
-			<%= form_for @genre do |f| %>
+			<%=  %>
+			<%= form_for(@detail_genre, url: rough_genre_detail_genre_path(@rough_genre.id)) do |f| %>
 			<%= text_field :genre %>
 			<%= f.submit "ジャンル追加" %>
-			<%= end %>
+			<% end %>
 			<%= link_to "戻る", :back %>
 		</div>
 	</div>
@@ -15,7 +15,7 @@
 		<table>
 			<tbody>
 				<tr>
-					<% @genres.each do |detail_genre| %>
+					<% @detail_genres.each do |detail_genre| %>
 					<td class="col-xs-4">
 						<%= detail_genre %>
 						<%= link_to "編集", edit_rough_genre_detail_genre_path(@rough_genre.id, detail_genre.id) %>

@@ -34,8 +34,8 @@
 					<td><%= f.text_field :minimum_focal_length %>mm〜<%= f.text_field :maximum_focal_length %>mm</td>
 				</tr>
 				<tr>
-					<td><label><%= f.radio_button :full_frame_support, "true" %>フルサイズ対応</label>
-						<label><%= f.radio_button :full_frame_support, "false" %>APS-C専用</label></td>
+					<td><label><%= f.radio_button :full_frame_support, "1" %>フルサイズ対応</label>
+						<label><%= f.radio_button :full_frame_support, "2" %>APS-C専用</label></td>
 				</tr>
 				<tr><td><%= f.submit "レンズ追加" %></td></tr>
 				<% end %>
@@ -44,16 +44,13 @@
 		<%= link_to "戻る", :back %>
 	</div>
 	<div class="row">
-		<table>
-			<tbody>
-				<tr>
-					<% @lenses.each do |lens| %>
-					<td class="col-xs-4">
-						<%= lens %>
-						<%= link_to "編集", edit_lens_path(lens.id) %>
-					</td>
-				</tr>
-			</tbody>
+		<% @lenses.each do |lens| %>
+		<table class="table table-bordered">
+			<tr>
+				<td class="col-xs-4">
+					<%= link_to "#{lens.name}", edit_lense_path(lens.id) %>
+				</td>
+			</tr>
 		</table>
 		<% end %>
 	</div>

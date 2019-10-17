@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_062531) do
+ActiveRecord::Schema.define(version: 2019_10_17_040748) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2019_10_08_062531) do
     t.string "manufacturer"
     t.string "sensor_size"
     t.string "mount"
-    t.boolean "film"
-    t.boolean "reflex"
-    t.boolean "interchangeable"
+    t.integer "film"
+    t.integer "reflex"
+    t.integer "interchangeable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_10_08_062531) do
   create_table "lens", force: :cascade do |t|
     t.string "name"
     t.string "manufacturer"
-    t.boolean "full_frame_support"
+    t.integer "full_frame_support"
     t.string "mount"
     t.decimal "minimum_aperture", precision: 3, scale: 1
     t.decimal "maximum_aperture", precision: 3, scale: 1
@@ -82,12 +82,18 @@ ActiveRecord::Schema.define(version: 2019_10_08_062531) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "manufacturers", force: :cascade do |t|
+    t.string "manufacturer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "caption"
     t.string "body_id"
     t.string "lens_id"
-    t.string "genre_id"
+    t.string "detail_genre_id"
     t.decimal "apeture", precision: 3, scale: 1
     t.integer "shutter_speed"
     t.integer "iso_setting"

@@ -15,7 +15,7 @@ class LensesController < ApplicationController
 
 	def create
 		@lens = Lens.new(lens_params)
-		if lens.save!
+		if @lens.save!
 			redirect_to lenses_path
 		else
 			render :new

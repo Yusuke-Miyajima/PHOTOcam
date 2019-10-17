@@ -1,12 +1,14 @@
 <div class="container">
 	<h2>レンズ一覧</h2>
+	<%= link_to "レンズ追加", new_lense_path, class:"btn btn-success btn-sm" %>
 	<hr>
 	<div class="row">
-		<table>
+		<%= notice %>
+		<table class="table table-bordered">
 			<tbody>
 				<tr>
 					<% @lenses.each do |lens| %>
-					<td><%= link_to "#{lens.name}", lens_path(@lens.id) %></td>
+					<td><%= link_to "#{lens.name}", lense_path(lens.id) %></td>
 					<% end %>
 				</tr>
 			</tbody>
