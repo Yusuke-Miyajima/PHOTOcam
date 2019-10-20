@@ -1,5 +1,57 @@
 <div class="container">
+	<%= notice %>
 	<div class="row">
-		<%= notice %>
+		<table>
+			<thead>
+				<tr>
+					<th><%= @lens.name %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td><%= @lens.manufacturer %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @lens.mount %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @lens.type %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @lens.full_frame_support %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @lens.focus_system %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>F<%= @lens.minimum_aperture %>~
+						F<%= @lens.maximum_aperture %>mm
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @lens.minimum_focal_length %>mm~
+						<%= @lens.maximum_focal_length %>mm</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<table>
+			<tr>
+				<% @photos.each do |photo| %>
+				<td><%= photo.image %><br>
+					<%= photo.title %><br>
+					<%= photo.user.account_id %>
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
+

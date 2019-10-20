@@ -1,7 +1,50 @@
 <div class="container">
 	<%= notice %>
 	<div class="row">
+		<table>
+			<thead>
+				<tr>
+					<th><%= @body.name %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td><%= @body.manufacturer %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @body.sensor_size %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @body.mount %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @body.film %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @body.reflex %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= @body.interchangeable %></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	<div class="row">
+		<table>
+			<tr>
+				<% @photos.each do |photo| %>
+				<td><%= photo.image %><br>
+					<%= photo.title %><br>
+					<%= photo.user.account_id %>
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
+
