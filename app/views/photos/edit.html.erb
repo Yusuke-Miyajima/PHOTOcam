@@ -1,7 +1,24 @@
 <div class="container">
+	<h2>投稿の編集</h2>
+	<hr>
 	<div class="row">
-		<% @photos.each do |photo| %>
-		
-		<% end %>
+		<% form_for %>
+		<tr>
+			<td><%= f.collection_select :body_id, @bodies, :id, :name, :prompt => "ボディを選択" %></td>
+			<td><%= link_to "ボディ追加", new_body_path, class:"btn btn-default btn-sm" %></td>
+		</tr>
+		<tr>
+			<td><%= f.collection_select :lens_id, @lenses, :id, :name, :prompt => "レンズを選択" %></td>
+			<td><%= link_to "レンズ追加", new_lense_path, class:"btn btn-default btn-sm" %>
+			</td>
+		</tr>
+		<tr>
+			<td><%= f.grouped_collection_select(:detail_genre_id, RoughGenre.all, :detail_genres, :genre, :id, :genre, :prompt => "ジャンルを選択") %></td>
+			<td><%= link_to "ジャンル追加", new_rough_genre_path, class:"btn btn-default btn-sm" %>
+			</td>
+		</tr>
+		<tr>
+			<td><%= f.submit %></td>
+		</tr>
 	</div>
 </div>

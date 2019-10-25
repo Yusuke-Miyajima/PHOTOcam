@@ -1,13 +1,30 @@
 <div class="container">
 	<%= notice %>
 	<div class="row"><%#---ジャンル毎表示---%>
+		<h3>ジャンル</h3>
+		<% @detail_genres.each do |detail_genre| %>
+		<%= detail_genre.genre %>
+		<%#<%= image_tag detail_genre.photo.image, size:"100x100" %>
+		<% end %>
 	</div>
-	<div class="row"><%#---ジャンル毎表示---%>
+	<div class="row">
+		<h3>ボディ作例</h3>
+		<table class="table table-bordered">
+			<tr>
+				<% @bodies.each do |body| %>
+				<td class="col-xs-4"><%= link_to "#{body.name}", body_path(body.id) %></td>
+				<% end %>
+			</tr>
+		</table>
 	</div>
-	<div class="row"><%#---人気記事---%>
-	</div>
-	<div class="row"><%#---ボディ---%>
-	</div>
-	<div class="row"><%#---レンズ---%>
+	<div class="row">
+		<h3>レンズ作例</h3>
+		<table class="table table-bordered">
+			<tr>
+				<% @lenses.each do |lens| %>
+				<td class="col-xs-4"><%= link_to "#{lens.name}", lense_path(lens.id) %></td>
+				<% end %>
+			</tr>
+		</table>
 	</div>
 </div>

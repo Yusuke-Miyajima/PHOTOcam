@@ -3,8 +3,7 @@
 	<hr>
 	<div class="row">
 		<div class="col-xs-3">
-			<%=  %>
-			<%= form_for(@detail_genre, url: rough_genre_detail_genre_path(@rough_genre.id)) do |f| %>
+			<%= form_for(@detail_genre, url: rough_genre_detail_genres_path(@detail_genre.rough_genre_id)) do |f| %>
 			<%= text_field :genre %>
 			<%= f.submit "ジャンル追加" %>
 			<% end %>

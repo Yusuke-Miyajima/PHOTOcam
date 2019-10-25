@@ -1,7 +1,7 @@
 class RoughGenresController < ApplicationController
 	def new
 		@rough_genre = RoughGenre.new
-		@rough_genres = RoughGenre.all
+		@rough_genres = RoughGenre.order("genre")
 	end
 
 	def create

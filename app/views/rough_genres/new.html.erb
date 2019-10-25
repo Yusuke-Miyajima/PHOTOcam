@@ -6,15 +6,18 @@
 		<%= f.text_field :genre %>
 		<%= f.submit "グループ追加" %>
 		<% end %>
-		<%= link_to "戻る", :back %>
 	</div>
-	<% @rough_genres.each do |rough_genre| %>
-	<div class="pull-left table-responsive col-xs-3">
-		<table class="table table-borderd">
+	<div class="row">
+		<table class="table table-bordered">
 			<tr>
-				<td><%= link_to "#{rough_genre.genre}", edit_rough_genre_path(rough_genre.id) %></td>
+				<% @rough_genres.each do |rough_genre| %>
+				<td class="col-xs-3">
+					<%= link_to "#{rough_genre.genre}", new_rough_genre_detail_genre_path(rough_genre.id) %>
+					<%= link_to "編集", edit_rough_genre_path(rough_genre.id), class:"btn btn-default btn-sm" %>
+				</td>
+				<% end %>
 			</tr>
 		</table>
 	</div>
-	<% end %>
+	<%= link_to "戻る", :back %>
 </div>

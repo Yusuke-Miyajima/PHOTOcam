@@ -1,0 +1,35 @@
+<div class="container">
+	<h2>投稿内容</h2>
+	<hr>
+	<div class="row">
+		<%= form_for @photo, url: do |f| %>
+		<table>
+			<tr>
+				<td>タイトル</td>
+				<td><%= f.text_field :title %></td>
+			</tr>
+			<tr>
+				<td>キャプション</td>
+				<td><%= f.text_area :caption %></td>
+			</tr>
+		</table>
+	</div>
+
+	<h2>ボディ,カメラ情報</h2>
+	<hr>
+	<div class="row">
+		<table>
+			<tr>
+				<td>ボディ</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>レンズ</td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+
+	<%= link_to "戻る", :back %>
+	<%= f.submit "投稿" %>
+</div>

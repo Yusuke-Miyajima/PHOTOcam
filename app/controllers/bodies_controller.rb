@@ -10,7 +10,7 @@ class BodiesController < ApplicationController
 
 	def new
 		@body = Body.new
-		@bodies = Body.all
+		@bodies = Body.order("name")
 	end
 
 	def create

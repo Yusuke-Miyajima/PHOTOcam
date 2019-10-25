@@ -24,6 +24,10 @@
       </nav>
       <% if user_signed_in? %>
       <nav class="nav navbar-nav navbar-right">
+        <li><%= "#{current_user.name}(@#{current_user.account_id})" %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></li>
+      </nav>
+      <nav class="nav navbar-nav navbar-right">
         <li><%= link_to "ユーザー情報編集", edit_user_registration_path %></li>
         <li><%= link_to "新規投稿", new_photo_path %></li>
       </nav>

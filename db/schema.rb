@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_040748) do
+ActiveRecord::Schema.define(version: 2019_10_24_053158) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 2019_10_17_040748) do
     t.decimal "apeture", precision: 3, scale: 1
     t.integer "shutter_speed"
     t.integer "iso_setting"
-    t.integer "favorite_number"
-    t.integer "comment_number"
+    t.integer "favorite_number", default: 0
+    t.integer "comment_number", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_id"

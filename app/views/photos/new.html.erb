@@ -1,5 +1,5 @@
 <div class="container">
-	<h2>新規投稿</h2>
+	<h2>写真を選択</h2>
 	<hr>
 	<div class="row">
 		<%= form_for @photo, url: photos_path do |f| %>
@@ -10,29 +10,12 @@
 					<td><%= f.file_field :image %></td>
 				</tr>
 				<tr>
-					<td>タイトル</td>
-					<td><%= f.text_field :title %></td>
-				</tr>
-				<tr>
-					<td>キャプション</td>
-					<td><%= f.text_area :caption %></td>
-				</tr>
-				<tr>
-					<td><%= f.collection_select :body_id, @bodies, :id, :name %></td>
-					<td><%= link_to "ボディ追加", new_body_path, class:"btn btn-default btn-sm" %></td>
-				</tr>
-				<tr>
-					<td><%= f.collection_select :lens_id, @lenses, :id, :name %></td>
-					<td><%= link_to "レンズ追加", new_lense_path, class:"btn btn-default btn-sm" %>
-					</td>
-				</tr>
-				<tr>
-					<td><%= f.grouped_collection_select(:detail_genre_id, RoughGenre.all, :detail_genres, :genre, :id, :genre) %></td>
+					<td><%= f.grouped_collection_select(:detail_genre_id, RoughGenre.all, :detail_genres, :genre, :id, :genre, :prompt => "ジャンルを選択") %></td>
 					<td><%= link_to "ジャンル追加", new_rough_genre_path, class:"btn btn-default btn-sm" %>
 					</td>
 				</tr>
 				<tr>
-					<td><%= f.submit %></td>
+					<td><%= f.submit "次へ" %></td>
 				</tr>
 			</tbody>
 		</table>

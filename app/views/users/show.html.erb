@@ -1,5 +1,5 @@
 <div class="container">
-	<h2><%= "#{current_user.name}" %>@<%= "#{current_user.account_id}" %></h2>
+	<h2><%= "#{current_user.name}" %>(@<%= "#{current_user.account_id}" %>)</h2>
 	<% if @user.id == current_user.id %>
 	<%= link_to "ユーザー編集", edit_user_registration_path(@user.id), class:"text-right" %>
 	<% end %>
@@ -10,15 +10,11 @@
 			<tbody>
 				<tr>
 					<% @photos.each do |photo| %>
-					<td><%= photo %></td><br>
-					<td><%= photo.title %></td>
+					<td><%= image_tag photo.image, size:"200x200" %><br>
+						<%= link_to "#{photo.title}", photo_path(photo.id) %></td>
 					<% end %>
 				</tr>
 			</tbody>
 		</table>
-	</div>
-	<div class="row">
-	</div>
-	<div class="row">
 	</div>
 </div>

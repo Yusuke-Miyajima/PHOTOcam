@@ -1,7 +1,7 @@
 class ManufacturersController < ApplicationController
 	def new
 		@manufacturer = Manufacturer.new
-		@manufacturers = Manufacturer.all
+		@manufacturers = Manufacturer.order("manufacturer")
 	end
 
 	def create

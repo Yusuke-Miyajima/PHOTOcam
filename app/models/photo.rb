@@ -4,6 +4,10 @@ class Photo < ApplicationRecord
 	belongs_to :body
 	belongs_to :lens
 	belongs_to :detail_genre
-	has_many :favorite, dependent: :destroy
-	has_many :comment, dependent: :destroy
+	has_many :favorites, dependent: :destroy
+	has_many :comments, dependent: :destroy
+
+	def favorited_by?(user)
+		favorites.where(user_id: user.id).exists?
+	end
 end

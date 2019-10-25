@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   root 'home#top'
 
   resources :photos do
-    resources :favorites, only: [:create, :destroy]
+    member do
+      get :add
+    end
+    resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
 

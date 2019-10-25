@@ -34,8 +34,8 @@
 					<td><%= f.text_field :minimum_focal_length %>mm〜<%= f.text_field :maximum_focal_length %>mm</td>
 				</tr>
 				<tr>
-					<td><label><%= f.radio_button :full_frame_support, "1" %>フルサイズ対応</label>
-						<label><%= f.radio_button :full_frame_support, "2" %>APS-C専用</label></td>
+					<td><label><%= f.radio_button :full_frame_support, "able" %>フルサイズ対応</label>
+						<label><%= f.radio_button :full_frame_support, "aps_c" %>APS-C専用</label></td>
 				</tr>
 				<tr><td><%= f.submit "レンズ追加" %></td></tr>
 				<% end %>

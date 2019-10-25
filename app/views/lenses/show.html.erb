@@ -1,7 +1,7 @@
 <div class="container">
 	<%= notice %>
 	<div class="row">
-		<table>
+		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th><%= @lens.name %></th>
@@ -9,33 +9,33 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td></td>
+					<td>メーカー</td>
 					<td><%= @lens.manufacturer %></td>
 				</tr>
 				<tr>
-					<td></td>
+					<td>マウント</td>
 					<td><%= @lens.mount %></td>
 				</tr>
 				<tr>
-					<td></td>
+					<td>レンズタイプ</td>
 					<td><%= @lens.type %></td>
 				</tr>
 				<tr>
-					<td></td>
+					<td>フルサイズ対応</td>
 					<td><%= @lens.full_frame_support %></td>
 				</tr>
 				<tr>
-					<td></td>
+					<td>AF,MF,AF/MF</td>
 					<td><%= @lens.focus_system %></td>
 				</tr>
 				<tr>
-					<td></td>
+					<td>F値</td>
 					<td>F<%= @lens.minimum_aperture %>~
-						F<%= @lens.maximum_aperture %>mm
+						F<%= @lens.maximum_aperture %>
 					</td>
 				</tr>
 				<tr>
-					<td></td>
+					<td>焦点距離</td>
 					<td><%= @lens.minimum_focal_length %>mm~
 						<%= @lens.maximum_focal_length %>mm</td>
 				</tr>
@@ -46,12 +46,12 @@
 		<table>
 			<tr>
 				<% @photos.each do |photo| %>
-				<td><%= photo.image %><br>
-					<%= photo.title %><br>
-					<%= photo.user.account_id %>
+				<td><%= image_tag photo.image, size:"250x250" %><br>
+					<%= link_to "#{photo.title}" ,photo_path(photo.id) %>
+					<%= link_to "(@#{photo.user.account_id })", user_path(photo.user.id) %>
 				</td>
+				<% end %>
 			</tr>
 		</table>
 	</div>
 </div>
-

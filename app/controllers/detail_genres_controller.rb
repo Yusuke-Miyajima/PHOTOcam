@@ -1,7 +1,7 @@
 class DetailGenresController < ApplicationController
 	def new
 		@detail_genre = DetailGenre.new
-		@detail_genres = DetailGenre.all
+		@detail_genres = DetailGenre.order("genre")
 	end
 
 	def create

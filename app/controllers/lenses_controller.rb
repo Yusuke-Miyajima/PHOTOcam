@@ -10,7 +10,7 @@ class LensesController < ApplicationController
 
 	def new
 		@lens = Lens.new
-		@lenses = Lens.all
+		@lenses = Lens.order("manufacturer")
 	end
 
 	def create

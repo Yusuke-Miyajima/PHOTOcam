@@ -22,18 +22,18 @@
 					<td><%= f.text_field :mount %></td>
 				</tr>
 				<tr>
-					<td><label><%= f.radio_button :film, "1" %>フィルムカメラ</label>
-						<label><%= f.radio_button :film, "2" %>デジタルカメラ</label>
+					<td><label><%= f.radio_button :film, "film" %>フィルムカメラ</label>
+						<label><%= f.radio_button :film, "degital" %>デジタルカメラ</label>
 					</td>
 				</tr>
 				<tr>
-					<td><label><%= f.radio_button :reflex, "1" %>レフ機</label>
-						<label><%= f.radio_button :reflex, "2" %>ミラーレス機</label>
+					<td><label><%= f.radio_button :reflex, "reflex" %>レフ機</label>
+						<label><%= f.radio_button :reflex, "mirrorless" %>ミラーレス機</label>
 					</td>
 				</tr>
 				<tr>
-					<td><label><%= f.radio_button :interchangeable, "1" %>レンズ交換式カメラ</label>
-						<label><%= f.radio_button :interchangeable, "2" %>レンズ交換不可</label>
+					<td><label><%= f.radio_button :interchangeable, "interchangeable" %>レンズ交換式カメラ</label>
+						<label><%= f.radio_button :interchangeable, "bilt_in" %>レンズ交換不可</label>
 					</td>
 				</tr>
 				<tr>

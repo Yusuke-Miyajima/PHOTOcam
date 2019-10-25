@@ -1,5 +1,70 @@
 <div class="container">
 	<div class="row">
 		<%= notice  %>
+		<div class="col-xs-9">
+			<%= image_tag @photo.image,size:"250x250" %>
+		</div>
+		<div class="col-xs-3">
+			<table class="table table-bordered">
+				<tr>
+					<td>タイトル</td>
+					<td><strong><%= @photo.title %></strong></td>
+				</tr>
+				<tr>
+					<td>ユーザー</td>
+					<td>@<strong><%= link_to "#{@photo.user.account_id}", user_path(@photo.user.id), class:"text-muted" %></strong></td>
+				</tr>
+				<tr>
+					<td colspan="2"><%= @photo.caption %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<% if user_signed_in? %>
+	<div class="row">
+		<% if @photo.favorited_by?(current_user) %>
+		<%= link_to photo_favorites_path(@photo), method: :delete, "data-disable-with" => "送信中" do%>
+		<i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></i>
+		<%= @photo.favorites.count %>
+		<% end %>
+		<% else %>
+		<%= link_to photo_favorites_path(@photo), method: :post, "data-disable-with" => "送信中" do %>
+		<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+		<%= @photo.favorites.count %>
+		<% end %>
+		<% end %>
+		<i class="glyphicon glyphicon-comment" aria-hidden="true"></i>
+		<%= @photo.comments.count %>
+	</div>
+	<div class="row">
+		<%= form_for [@photo, @comment] do |f| %>
+		<%= f.text_area :comment, class:"form-comtrol" %>
+		<%= f.submit "送信", class:"btn btn-default" %>
+		<% end %>
+	</div>
+	<% else %>
+	<div class="row">
+		<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+		<%= @photo.favorites.count %>
+		<i class="glyphicon glyphicon-comment" aria-hidden="true"></i>
+		<%= @photo.comments.count %>
+	</div>
+	<% end %>
+
+	<div class="row">
+		<table class="table table-bordered">
+			<% @photo.comments.each do |comment| %>
+			<tr>
+				<td><%= comment.user.account_id %></td>
+				<td><%= comment.comment %></td>
+				<td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+				<% if comment.user.account_id == current_user.account_id %>
+				<td><%= link_to "編集", edit_photo_comment_path(comment.photo.id, comment.id) %></td>
+				<td><%= link_to "削除", photo_comment_path(comment.photo.id, comment.id), class:"btn btn-danger btn-sm", method: :delete, "data-comfirm" => "コメントを削除しますか？" %></td>
+				<% end %>
+			</tr>
+			<% end %>
+		</table>
 	</div>
 </div>
