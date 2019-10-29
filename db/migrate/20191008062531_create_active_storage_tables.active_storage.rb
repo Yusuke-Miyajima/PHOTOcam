@@ -1,4 +1,3 @@
-# This migration comes from active_storage (originally 20170806125915)
 class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
   def change
     create_table :active_storage_blobs do |t|
@@ -23,5 +22,15 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
       t.index [ :record_type, :record_id, :name, :blob_id ], name: "index_active_storage_attachments_uniqueness", unique: true
       t.foreign_key :active_storage_blobs, column: :blob_id
     end
+
+    create_table :manufacturers do |t|
+      t.string :manufacturer
+
+      t.timestamps
+    end
+
+    change_column :bodies, :film, :integer
+    change_column :bodies, :reflex, :integer
+    change_column :bodies, :interchangeable, :integer
   end
 end

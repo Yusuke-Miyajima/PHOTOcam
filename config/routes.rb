@@ -16,9 +16,9 @@ Rails.application.routes.draw do
 
   resources :manufacturers, only: [:new, :create, :update, :edit]
 
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
   resources :bodies
-  resources :lenses
+  resources :lens_systems
 
   resources :rough_genres, only: [:new, :create, :edit, :update, :destroy] do
     resources :detail_genres

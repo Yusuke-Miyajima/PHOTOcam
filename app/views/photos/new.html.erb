@@ -11,11 +11,11 @@
 				</tr>
 				<tr>
 					<td><%= f.grouped_collection_select(:detail_genre_id, RoughGenre.all, :detail_genres, :genre, :id, :genre, :prompt => "ジャンルを選択") %></td>
-					<td><%= link_to "ジャンル追加", new_rough_genre_path, class:"btn btn-default btn-sm" %>
+					<td><%= link_to "ジャンル追加", new_rough_genre_path, class:"btn btn-primary btn-sm" %>
 					</td>
 				</tr>
 				<tr>
-					<td><%= f.submit "次へ" %></td>
+					<td><%= f.submit "次へ", class:"btn btn-default btn-sm" %></td>
 				</tr>
 			</tbody>
 		</table>

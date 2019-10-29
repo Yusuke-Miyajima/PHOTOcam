@@ -1,16 +1,18 @@
 <div class="container">
+	<h2>ボディ詳細</h2>
+	<hr>
 	<%= notice %>
 	<div class="row">
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th><%= @body.name %></th>
+					<th colspan="2"><%= @body.name %></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>メーカー</td>
-					<td><%= @body.manufacturer %></td>
+					<td><%= @body.manufacturer.manufacturer %></td>
 				</tr>
 				<tr>
 					<td>センサーサイズ</td>
@@ -34,8 +36,11 @@
 				</tr>
 			</tbody>
 		</table>
+		<%= link_to "ボディ情報を編集する", edit_body_path(@body.id), class:"btn btn-success btn-sm" %>
 	</div>
 	<div class="row">
+		<h2>ボディ作例</h2>
+		<hr>
 		<table>
 			<tr>
 				<% @photos.each do |photo| %>

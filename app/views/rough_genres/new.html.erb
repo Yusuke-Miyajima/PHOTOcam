@@ -4,7 +4,7 @@
 	<div class="row">
 		<%= form_for(@rough_genre) do |f| %>
 		<%= f.text_field :genre %>
-		<%= f.submit "グループ追加" %>
+		<%= f.submit "グループ追加", class:"btn btn-default btn-sm" %>
 		<% end %>
 	</div>
 	<div class="row">
@@ -13,11 +13,11 @@
 				<% @rough_genres.each do |rough_genre| %>
 				<td class="col-xs-3">
 					<%= link_to "#{rough_genre.genre}", new_rough_genre_detail_genre_path(rough_genre.id) %>
-					<%= link_to "編集", edit_rough_genre_path(rough_genre.id), class:"btn btn-default btn-sm" %>
+					<%= link_to "編集", edit_rough_genre_path(rough_genre.id), class:"btn btn-success btn-sm" %>
 				</td>
 				<% end %>
 			</tr>
 		</table>
 	</div>
-	<%= link_to "戻る", :back %>
+	<%= link_to "戻る", :back, class:"btn btn-default btn-sm" %>
 </div>

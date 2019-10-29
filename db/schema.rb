@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_053158) do
+ActiveRecord::Schema.define(version: 2019_10_29_031641) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_053158) do
   end
 
   create_table "bodies", force: :cascade do |t|
-    t.string "manufacturer"
+    t.string "manufacturer_id"
     t.string "sensor_size"
     t.string "mount"
     t.integer "film"
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 2019_10_24_053158) do
 
   create_table "detail_genres", force: :cascade do |t|
     t.string "genre"
+    t.integer "rough_genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "rough_genre_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 2019_10_24_053158) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "lens", force: :cascade do |t|
+  create_table "lens_systems", force: :cascade do |t|
     t.string "name"
-    t.string "manufacturer"
+    t.string "manufacturer_id"
     t.integer "full_frame_support"
     t.string "mount"
     t.decimal "minimum_aperture", precision: 3, scale: 1
@@ -91,9 +91,10 @@ ActiveRecord::Schema.define(version: 2019_10_24_053158) do
   create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "caption"
-    t.string "body_id"
-    t.string "lens_id"
-    t.string "detail_genre_id"
+    t.integer "user_id"
+    t.integer "body_id", default: 1
+    t.integer "lens_system_id", default: 1
+    t.integer "detail_genre_id"
     t.decimal "apeture", precision: 3, scale: 1
     t.integer "shutter_speed"
     t.integer "iso_setting"
@@ -101,7 +102,6 @@ ActiveRecord::Schema.define(version: 2019_10_24_053158) do
     t.integer "comment_number", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_id"
   end
 
   create_table "rough_genres", force: :cascade do |t|
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_053158) do
     t.string "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_users_on_account_id", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

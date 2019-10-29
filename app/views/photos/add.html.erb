@@ -2,7 +2,7 @@
 	<h2>投稿内容</h2>
 	<hr>
 	<div class="row">
-		<%= form_for @photo, url: do |f| %>
+		<%= form_for @photo do |f| %>
 		<table>
 			<tr>
 				<td>タイトル</td>
@@ -15,21 +15,25 @@
 		</table>
 	</div>
 
-	<h2>ボディ,カメラ情報</h2>
+	<h4>ボディ,カメラ情報を追加してください</h4>
 	<hr>
 	<div class="row">
 		<table>
 			<tr>
-				<td>ボディ</td>
-				<td></td>
+				<td><%= f.grouped_collection_select(:body_id, Manufacturer.all, :bodies, :manufacturer, :id, :name, :prompt => "ボディを選択") %></td>
+				<td><%= link_to "ボディ追加", new_body_path, class:"btn btn-default btn-sm" %></td>
 			</tr>
 			<tr>
-				<td>レンズ</td>
-				<td></td>
+				<td><%= f.grouped_collection_select(:lens_system_id, Manufacturer.all, :lens_systems, :manufacturer, :id, :name, :prompt => "レンズを選択") %></td>
+				<td><%= link_to "レンズ追加", new_lens_system_path, class:"btn btn-default btn-sm" %></td>
+			</tr>
+			<tr>
+				<td><%= f.submit "投稿", class:"btn btn-ptimary btn-sm" %></td>
+			</tr>
+			<tr>
+				<td><%= link_to "戻る", :back, class:"btn btn-default btn-sm" %></td>
 			</tr>
 		</table>
 	</div>
-
-	<%= link_to "戻る", :back %>
-	<%= f.submit "投稿" %>
+	<% end %>
 </div>

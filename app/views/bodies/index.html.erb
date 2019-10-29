@@ -1,14 +1,65 @@
 <div class="container">
-	<h2>ボディ一覧</h2>
-	<%= link_to "ボディ追加", new_body_path, class:"btn btn-success btn-sm" %>
-	<hr>
+	<h2>ボディ作例</h2>
+	<%= notice %>
 	<div class="row">
-		<%= notice %>
+		<table class="table">
+			<thred>
+				<tr>
+					<th><%= link_to "#{@r_bodies.first.manufacturer.manufacturer} #{@r_bodies.first.name}", body_path(@r_bodies.first.id) %></th>
+				</tr>
+			</thred>
+			<tbody>
+				<% if @first_photos.exists? %>
+				<tr>
+					<% @first_photos.each do |photo| %>
+					<td>
+						<%= image_tag photo.image, size:"200x200" %><br>
+						<%= link_to "#{photo.title}", photo_path(photo.id) %>
+						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+					</td>
+					<% end %>
+				</tr>
+				<% else %>
+				<tr>
+					<td>写真が投稿されていません。</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<table class="table">
+			<thred>
+				<tr>
+					<th><%= link_to "#{@r_bodies.second.manufacturer.manufacturer} #{@r_bodies.second.name}", body_path(@r_bodies.second.id) %></th>
+				</tr>
+			</thred>
+			<tbody>
+				<% if @second_photos.exists? %>
+				<tr>
+					<% @second_photos.each do |photo| %>
+					<td>
+						<%= image_tag photo.image, size:"200x200" %><br>
+						<%= link_to "#{photo.title}", photo_path(photo.id) %>
+						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+					</td>
+					<% end %>
+				</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<h2>ボディ一覧(メーカー順)</h2>
 		<table class="table table-bordered">
 			<tbody>
 				<tr>
 					<% @bodies.each do |body| %>
-					<td><%= link_to "#{body.name}", body_path(body.id) %></td>
+					<td class="pull-left col-xs-3"><%= link_to "#{body.manufacturer.manufacturer} #{body.name}", body_path(body.id) %></td>
 					<% end %>
 				</tr>
 			</tbody>

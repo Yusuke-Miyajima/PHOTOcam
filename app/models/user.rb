@@ -6,10 +6,13 @@ class User < ApplicationRecord
   has_many :photos, dependent: :destroy
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
+  validates :account_id, uniqueness: true
 
   def self.search(search)
   	if search
-  		where(["account_id LIKE?","%#{search}%"])
+  		where(["name LIKE? OR account_id LIKE?","%#{search}%","%#{search}%"])
+    else
+      User.order("RANDOM()").limit(5)
   	end
   end
 end

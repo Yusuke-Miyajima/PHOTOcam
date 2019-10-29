@@ -2,23 +2,32 @@
 	<h2>投稿の編集</h2>
 	<hr>
 	<div class="row">
-		<% form_for %>
+		<table>
+		<%= form_for(@photo) do |f| %>
 		<tr>
-			<td><%= f.collection_select :body_id, @bodies, :id, :name, :prompt => "ボディを選択" %></td>
+			<td>タイトル</td>
+			<td><%= f.text_field :title, autofocus: true, class:"form-control", autocomplete: "on" %></td>
+		</tr>
+		<tr>
+			<td>キャプション</td>
+			<td><%= f.text_area :caption, class:"form-control", autocomplete: "on" %></td>
+		</tr>
+		<tr>
+			<td><%= f.grouped_collection_select(:body_id, Manufacturer.all, :bodies, :manufacturer, :id, :name, :prompt => "ボディを選択") %></td>
 			<td><%= link_to "ボディ追加", new_body_path, class:"btn btn-default btn-sm" %></td>
 		</tr>
 		<tr>
-			<td><%= f.collection_select :lens_id, @lenses, :id, :name, :prompt => "レンズを選択" %></td>
-			<td><%= link_to "レンズ追加", new_lense_path, class:"btn btn-default btn-sm" %>
-			</td>
+			<td><%= f.grouped_collection_select(:lens_system_id, Manufacturer.all, :lens_systems, :manufacturer, :id, :name, :prompt => "レンズを選択") %></td>
+			<td><%= link_to "レンズ追加", new_lens_system_path, class:"btn btn-default btn-sm" %></td>
 		</tr>
 		<tr>
 			<td><%= f.grouped_collection_select(:detail_genre_id, RoughGenre.all, :detail_genres, :genre, :id, :genre, :prompt => "ジャンルを選択") %></td>
-			<td><%= link_to "ジャンル追加", new_rough_genre_path, class:"btn btn-default btn-sm" %>
-			</td>
+			<td><%= link_to "ジャンル追加", new_rough_genre_path, class:"btn btn-default btn-sm" %></td>
 		</tr>
 		<tr>
-			<td><%= f.submit %></td>
+			<td><%= f.submit "更新", class:"btn btn-success btn-sm" %></td>
 		</tr>
+		<% end %>
+	</table>
 	</div>
 </div>

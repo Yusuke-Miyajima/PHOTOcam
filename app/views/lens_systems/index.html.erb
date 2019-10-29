@@ -1,0 +1,68 @@
+<div class="container">
+	<h2>レンズ作例</h2>
+	<%= notice %>
+	<div class="row">
+		<table class="table table-bordered">
+			<thred>
+				<tr>
+					<th><%= link_to "#{@r_lenses.first.manufacturer.manufacturer} #{@r_lenses.first.name}", lens_system_path(@r_lenses.first.id) %></th>
+				</tr>
+			</thred>
+			<tbody>
+				<% if @first_photos.exists? %>
+				<tr>
+					<% @first_photos.each do |photo| %>
+					<td>
+						<%= image_tag photo.image, :width => '18%', :height => 'auto' %><br>
+						<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+					</td>
+					<% end %>
+				</tr>
+				<% else %>
+				<tr>
+					<td>写真が投稿されていません。</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<table class="table table-bordered">
+			<thred>
+				<tr>
+					<th><%= link_to "#{@r_lenses.second.manufacturer.manufacturer} #{@r_lenses.second.name}", lens_system_path(@r_lenses.second.id) %></th>
+				</tr>
+			</thred>
+			<tbody>
+				<% if @second_photos.exists? %>
+				<tr>
+					<% @second_photos.each do |photo| %>
+					<td>
+						<%= image_tag photo.image, :width => '18%', :height => 'auto' %><br>
+						<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+					</td>
+					<% end %>
+				</tr>
+				<% else %>
+				<tr>
+					<td>写真が投稿されていません。</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<h2>レンズ一覧(メーカー順)</h2>
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<% @lenses.each do |lens| %>
+					<td class="pull-left col-xs-4"><%= link_to "#{lens.manufacturer.manufacturer} #{lens.name}", lens_system_path(lens.id) %></td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

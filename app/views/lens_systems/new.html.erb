@@ -2,16 +2,17 @@
 	<h2>レンズ追加</h2>
 	<hr>
 	<div class="row">
-		<%= form_for(@lens, url: '/lenses') do |f| %>
+		<%= form_for(@lens, url: '/lens_systems') do |f| %>
 		<table>
 			<tbody>
 				<tr>
-					<td>レンズ名:</td>
-					<td><%= f.text_field :name %></td>
+					<td>メーカー:</td>
+					<td><%= f.collection_select :manufacturer_id, @manufacturers, :id, :manufacturer, :prompt => "メーカーを選択" %>
+						<%= link_to "メーカー追加", new_manufacturer_path, class:"btn btn-default btn-sm" %></td>
 				</tr>
 				<tr>
-					<td>メーカー:</td>
-					<td><%= f.text_field :manufacturer %></td>
+					<td>レンズ名:</td>
+					<td><%= f.text_field :name %></td>
 				</tr>
 				<tr>
 					<td>マウント:</td>
@@ -37,18 +38,18 @@
 					<td><label><%= f.radio_button :full_frame_support, "able" %>フルサイズ対応</label>
 						<label><%= f.radio_button :full_frame_support, "aps_c" %>APS-C専用</label></td>
 				</tr>
-				<tr><td><%= f.submit "レンズ追加" %></td></tr>
+				<tr><td><%= f.submit "レンズ追加", class:"btn btn-primary btn-sm" %></td></tr>
 				<% end %>
 			</tbody>
 		</table>
-		<%= link_to "戻る", :back %>
+		<%= link_to "戻る", :back, class:"btn btn-default btn-sm" %>
 	</div>
 	<div class="row">
 		<% @lenses.each do |lens| %>
 		<table class="table table-bordered">
 			<tr>
 				<td class="col-xs-4">
-					<%= link_to "#{lens.name}", edit_lense_path(lens.id) %>
+					<%= link_to "#{lens.name}", edit_lens_system_path(lens.id) %>
 				</td>
 			</tr>
 		</table>

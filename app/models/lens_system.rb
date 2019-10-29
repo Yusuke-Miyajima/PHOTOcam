@@ -1,5 +1,7 @@
-class Lens < ApplicationRecord
+class LensSystem < ApplicationRecord
 	has_many :photos, dependent: :destroy
+	belongs_to :manufacturer
+
 	self.inheritance_column = :_type_disabled
 	enum full_frame_support: { able: 1, aps_c: 2 }
 

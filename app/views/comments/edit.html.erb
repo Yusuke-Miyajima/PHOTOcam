@@ -5,9 +5,9 @@
 		<div class="col-xs-3">
 			<%= form_for @comment, url: photo_comment_path(@comment.photo_id, @comment.id), method: :patch do |f| %>
 			<%= f.text_field :comment, autofocus: true, class:"form-control", autocomplete: "on" %>
-			<%= f.submit "更新" %>
+			<%= f.submit "更新", class:"btn btn-success btn-sm" %>
 			<%= end %>
-			<%= link_to "戻る", :back %>
+			<%= link_to "戻る", :back, class:"btn btn-default btn-sm" %>
 		</div>
 	</div>
 </div>

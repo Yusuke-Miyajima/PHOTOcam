@@ -33,11 +33,11 @@
 							<label><%= f.radio_button :interchangeable, "2" %>レンズ交換不可</label>
 						</td>
 					</tr>
-					<tr><td><%= f.submit "更新" %></td></tr>
+					<tr><td><%= f.submit "更新", class:"btn btn-success btn-sm" %></td></tr>
 				</tbody>
 			</table>
 			<% end %>
-			<%= link_to "戻る", :back %>
+			<%= link_to "戻る", :back, class:"btn btn-default btn-sm" %>
 		</div>
 	</div>
 </div>

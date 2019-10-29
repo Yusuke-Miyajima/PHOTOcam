@@ -1,16 +1,18 @@
 <div class="container">
+	<h2>レンズ詳細</h2>
+	<hr>
 	<%= notice %>
 	<div class="row">
 		<table class="table table-bordered">
-			<thead>
+			<thred>
 				<tr>
-					<th><%= @lens.name %></th>
+					<th colspan="2"><%= @lens.name %></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>メーカー</td>
-					<td><%= @lens.manufacturer %></td>
+					<td><%= @lens.manufacturer.manufacturer %></td>
 				</tr>
 				<tr>
 					<td>マウント</td>
@@ -41,8 +43,11 @@
 				</tr>
 			</tbody>
 		</table>
+		<%= link_to "レンズ情報を編集する", edit_lens_system_path(@lens.id), class:"btn btn-success btn-sm" %>
 	</div>
 	<div class="row">
+		<h2>レンズ作例</h2>
+		<hr>
 		<table>
 			<tr>
 				<% @photos.each do |photo| %>

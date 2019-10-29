@@ -9,26 +9,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
-  <div class="nav navbar-inverse">
+<body style="margin-bottom: 20px;">
+  <div class="nav navbar-inverse" style="margin-bottom: 10px;">
     <div class="container-fluid">
-      <h1 class="text-center"><%= link_to "PHOTOcam", root_path, class:"text-muted" %></h1>
       <nav class="nav navbar-nav navbar-left">
-        <li><%= form_tag() do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag "検索"%>
-          <% end %>
-        </li>
+        <li><h1 class="text-left"><%= link_to "PHOTOcam", root_path, class:"text-muted" %></h1></li>
         <li><%= link_to "カメラ作例", bodies_path %></li>
-        <li><%= link_to "レンズ作例", lenses_path %></li>
+        <li><%= link_to "レンズ作例", lens_systems_path %></li>
+        <li><%= link_to "ユーザーから探す", users_path %></li>
       </nav>
       <% if user_signed_in? %>
       <nav class="nav navbar-nav navbar-right">
-        <li><%= "#{current_user.name}(@#{current_user.account_id})" %></li>
+        <li><%= link_to "#{current_user.name}(@#{current_user.account_id})", user_path(current_user.id) %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></li>
       </nav>
       <nav class="nav navbar-nav navbar-right">
-        <li><%= link_to "ユーザー情報編集", edit_user_registration_path %></li>
         <li><%= link_to "新規投稿", new_photo_path %></li>
       </nav>
       <% else %>
@@ -41,11 +36,11 @@
   </div>
   <%= yield %>
 </body>
-<footer>
-  <div class="nav navbar-inverse">
-    <div class="container">
-      <p class="text-center text-muted">PHOTOcam</p>
+  <footer>
+    <div class="nav navbar-inverse">
+      <div class="container">
+        <p class="text-center text-muted">PHOTOcam</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </html>

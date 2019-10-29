@@ -1,30 +1,276 @@
 <div class="container">
 	<%= notice %>
-	<div class="row"><%#---ジャンル毎表示---%>
+	<div class="row">
 		<h3>ジャンル</h3>
-		<% @detail_genres.each do |detail_genre| %>
-		<%= detail_genre.genre %>
-		<%#<%= image_tag detail_genre.photo.image, size:"100x100" %>
-		<% end %>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @detail_genres.first.genre %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @first_genre_photos.exists? %>
+					<tr>
+						<% @first_genre_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @detail_genres.second.genre %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @second_genre_photos.exists? %>
+					<tr>
+						<% @second_genre_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<div class="row">
 		<h3>ボディ作例</h3>
-		<table class="table table-bordered">
-			<tr>
-				<% @bodies.each do |body| %>
-				<td class="col-xs-4"><%= link_to "#{body.name}", body_path(body.id) %></td>
-				<% end %>
-			</tr>
-		</table>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @bodies.first.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @first_body_photos.exists? %>
+					<tr>
+						<% @first_body_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @bodies.second.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @second_body_photos.exists? %>
+					<tr>
+						<% @second_body_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @bodies.third.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @third_body_photos.exists? %>
+					<tr>
+						<% @third_body_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @bodies.fourth.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @fourth_body_photos.exists? %>
+					<tr>
+						<% @fourth_body_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<div class="row">
 		<h3>レンズ作例</h3>
-		<table class="table table-bordered">
-			<tr>
-				<% @lenses.each do |lens| %>
-				<td class="col-xs-4"><%= link_to "#{lens.name}", lense_path(lens.id) %></td>
-				<% end %>
-			</tr>
-		</table>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @lenses.first.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @first_lens_photos.exists? %>
+					<tr>
+						<% @first_lens_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @lenses.second.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @second_lens_photos.exists? %>
+					<tr>
+						<% @second_lens_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @lenses.third.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @third_lens_photos.exists? %>
+					<tr>
+						<% @third_lens_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-6">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th colspan="3"><%= @lenses.fourth.name %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% if @fourth_lens_photos.exists? %>
+					<tr>
+						<% @fourth_lens_photos.each do |photo| %>
+						<td>
+							<%= image_tag photo.image, :width => '50%', :height => 'auto', class:"center-block" %><br>
+							<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
+							(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						</td>
+						<% end %>
+					</tr>
+					<% else %>
+					<tr>
+						<td>写真が投稿されていません。</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

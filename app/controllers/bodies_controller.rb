@@ -1,6 +1,9 @@
 class BodiesController < ApplicationController
 	def index
-		@bodies = Body.all
+		@bodies = Body.where.not(id: '1')
+		@r_bodies = @bodies.order("RANDOM()").limit(2)
+		@first_photos = @r_bodies.first.photos.order("RANDOM()").limit(5)
+		@second_photos = @r_bodies.second.photos.order("RANDOM()").limit(5)
 	end
 
 	def show
@@ -10,7 +13,9 @@ class BodiesController < ApplicationController
 
 	def new
 		@body = Body.new
-		@bodies = Body.order("name")
+		@bo = Body.where.not(id: '1')
+		@bodies = @bo.order("name")
+		@manufacturers = Manufacturer.all
 	end
 
 	def create
@@ -43,6 +48,6 @@ class BodiesController < ApplicationController
 
 	private
 	def body_params
-		params.require(:body).permit(:name, :manufacturer, :sensor_size, :mount, :film, :reflex, :interchangeable)
+		params.require(:body).permit(:name, :manufacturer_id, :sensor_size, :mount, :film, :reflex, :interchangeable)
 	end
 end

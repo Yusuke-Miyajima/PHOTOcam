@@ -1,7 +1,73 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+user = User.new(name: 'アンパンマン', account_id: 'anpanman', email: 'anpanman@gmail.com', password: 'anpanman')
+user.save!
+user = User.new(name: 'ばいきんまん', account_id: 'baikinman', email: 'baikinman@gmail.com', password: 'baikinman')
+user.save!
+user = User.new(name: 'ジャムおじさん', account_id: 'jamojisan', email: 'jamojisan@gmail.com', password: 'jamojisan')
+user.save!
+user = User.new(name: 'バタコさん', account_id: 'batako', email: 'batako@gmail.com', password: 'batako')
+user.save!
+user = User.new(name: 'ドキンちゃん', account_id: 'dokinchan', email: 'dokinchan@gmail.com', password: 'dokinchan')
+user.save!
+user = User.new(name: 'めいけんチーズ', account_id: 'cheese', email: 'cheese@gmail.com', password: 'cheese')
+user.save!
+user = User.new(name: 'しょくぱんまん', account_id: 'syokupanman', email: 'syokupanman@gmail.com', password: 'syokupanman')
+user.save!
+user = User.new(name: 'カレーパンマン', account_id: 'currypanman', email: 'currypanman@gmail.com', password: 'currypanman')
+user.save!
+user = User.new(name: 'てんどんまん', account_id: 'tendon', email: 'tendon@gmail.com', password: 'tendon')
+user.save!
+user = User.new(name: 'ホラーマン', account_id: 'horrorman', email: 'horrorman@gmail.com', password: 'horrorman')
+user.save!
+RoughGenre.create!(id: '1', genre: 'nature')
+RoughGenre.create!(id: '2', genre: 'artifact')
+RoughGenre.create!(id: '3', genre: 'creature')
+RoughGenre.create!(id: '4', genre: 'human')
+DetailGenre.create!(genre: 'landscape', rough_genre_id: '1')
+DetailGenre.create!(genre: 'flower', rough_genre_id: '1')
+DetailGenre.create!(genre: 'sky', rough_genre_id: '1')
+DetailGenre.create!(genre: 'food', rough_genre_id: '2')
+DetailGenre.create!(genre: 'gadget', rough_genre_id: '2')
+DetailGenre.create!(genre: 'animal', rough_genre_id: '3')
+DetailGenre.create!(genre: 'portrait', rough_genre_id: '4')
+DetailGenre.create!(genre: 'event', rough_genre_id: '4')
+DetailGenre.create!(genre: 'bridal', rough_genre_id: '4')
+Manufacturer.create!(id: '1', manufacturer: 'Sony')
+Manufacturer.create!(id: '2', manufacturer: 'Canon')
+Manufacturer.create!(id: '3', manufacturer: 'Nikon')
+Manufacturer.create!(id: '4', manufacturer: 'Fujifilm')
+Manufacturer.create!(id: '5', manufacturer: 'Panasonic')
+Manufacturer.create!(id: '6', manufacturer: 'Olympus')
+Manufacturer.create!(id: '7', manufacturer: 'Pentax')
+Manufacturer.create!(id: '8', manufacturer: 'Leica')
+Manufacturer.create!(id: '9', manufacturer: 'Sigma')
+Manufacturer.create!(id: '10', manufacturer: 'Hasselblad')
+Manufacturer.create!(id: '11', manufacturer: 'Ricoh')
+Manufacturer.create!(id: '12', manufacturer: 'Samyang')
+Manufacturer.create!(id: '13', manufacturer: 'Tamron')
+Manufacturer.create!(id: '14', manufacturer: 'Lensbaby')
+Manufacturer.create!(id: '15', manufacturer: 'Zeiss')
+Manufacturer.create!(id: '16', manufacturer: 'Cosina')
+Manufacturer.create!(id: '17', manufacturer: 'Tokina')
+Body.create!(id: '1', manufacturer_id: '1')
+LensSystem.create!(id: '1', manufacturer_id: '1')
+Body.create!(name: 'ILCE-7M3', manufacturer_id: '1', sensor_size: 'full_size', mount: 'E_mount', film: 2, reflex: 2, interchangeable: 1)
+Body.create!(name: 'ILCE-7RM4', manufacturer_id: '1', sensor_size: 'full_size', mount: 'E_mount', film: 2, reflex: 2, interchangeable: 1)
+Body.create!(name: 'EOS R', manufacturer_id: '2', sensor_size: 'full_size', mount: 'RF_mount', film: 2, reflex: 2, interchangeable: 1)
+Body.create!(name: 'EOS Kiss M', manufacturer_id: '2', sensor_size: 'APS-C', mount: 'EF_M_mount', film: 2, reflex: 2, interchangeable: 1)
+Body.create!(name: 'D850', manufacturer_id: '3', sensor_size: 'full_size', mount: 'F_mount', film: 2, reflex: 1, interchangeable: 1)
+Body.create!(name: 'X-T30', manufacturer_id: '4', sensor_size: 'APS-C', mount: 'X_mount', film: 2, reflex: 2, interchangeable: 1)
+Body.create!(name: 'DC-G9', manufacturer_id: '5', sensor_size: 'MFT', mount: 'MFT_mount', film: 2, reflex: 2, interchangeable: 1)
+Body.create!(name: 'E-M10 Mark III', manufacturer_id: '6', sensor_size: 'MFT', mount: 'MFT_mount', film: 2, reflex: 2, interchangeable: 1)
+Body.create!(name: 'PENTAX K-1', manufacturer_id: '7', sensor_size: 'full_size', mount: 'K_mount', film: 2, reflex: 1, interchangeable: 1)
+Body.create!(name: 'LEICA TL2', manufacturer_id: '8', sensor_size: 'APS-C', mount: 'L_mount', film: 2, reflex: 2, interchangeable: 1)
+LensSystem.create!(name: 'E 70-350mm F4.5-6.3 G OSS SEL70350G', manufacturer_id: '1',mount: 'E_mount', full_frame_support: 1, minimum_aperture: 4.5, maximum_aperture: 6.3, minimum_focal_length: 70, maximum_focal_length: 350, type: '望遠ズーム', focus_system: 'AF/MF')
+LensSystem.create!(name: 'FE 35mm F1.8 SEL35F18F', manufacturer_id: '1',mount: 'E_mount', full_frame_support: 1, minimum_aperture: 1.8, maximum_aperture: 1.8, minimum_focal_length: 35, maximum_focal_length: 35, type: '単焦点', focus_system: 'AF/MF')
+LensSystem.create!(name: 'RF24-105mm F4L IS USM', manufacturer_id: '2', mount: 'RF_mount', full_frame_support: 1, minimum_aperture: 4, maximum_aperture: 4, minimum_focal_length: 24, maximum_focal_length: 105, type: '標準ズーム', focus_system: 'AF/MF')
+LensSystem.create!(name: 'EF-M11-22mm F4-5.6 IS STM', manufacturer_id: '2', mount: 'EF_M_mount', full_frame_support: 2, minimum_aperture: 4, maximum_aperture: 5.6, minimum_focal_length: 11, maximum_focal_length: 22, type: '広角ズーム', focus_system: 'AF/MF')
+LensSystem.create!(name: 'AF-S NIKKOR 70-200mm f/2.8E FL ED VR', manufacturer_id: '3', mount: 'F_mount', full_frame_support: 1, minimum_aperture: 2.8, maximum_aperture: 2.8, minimum_focal_length: 70, maximum_focal_length: 200, type: '望遠ズーム', focus_system: 'AF/MF')
+LensSystem.create!(name: 'フジノンレンズ XF35mmF1.4 R', manufacturer_id: '4', mount: 'X_mount', full_frame_support: 2, minimum_aperture: 1.4, maximum_aperture: 1.4, minimum_focal_length: 35, maximum_focal_length: 35, type: '単焦点', focus_system: 'AF/MF')
+LensSystem.create!(name: 'LEICA DG VARIO-ELMARIT 12-60mm/F2.8-4.0 ASPH./POWER O.I.S. H-ES12060', manufacturer_id: 5, mount: 'MTF_mount', full_frame_support: 2, minimum_aperture: 2.8, maximum_aperture: 4, minimum_focal_length: 12, maximum_focal_length: 60, type: '標準ズーム', focus_system: 'AF/MF')
+LensSystem.create!(name: 'M.ZUIKO DIGITAL ED 12-100mm F4.0 IS PRO', manufacturer_id: '6', mount: 'MTF_mount', full_frame_support: 2, minimum_aperture: 4, maximum_aperture: 4, minimum_focal_length: 12, maximum_focal_length: 100, type: '標準ズーム', focus_system: 'AF/MF')
+LensSystem.create!(name: 'FA35mmF2AL', manufacturer_id: '7', mount: 'K_mount', full_frame_support: 1, minimum_aperture: 2, maximum_aperture: 2, minimum_focal_length: 35, maximum_focal_length: 35, type: '単焦点', focus_system: 'AF/MF')
+LensSystem.create!(name: 'LUMIX S PRO 24-70 mm F2.8 S-E2470', manufacturer_id: '5', mount: 'L_mount', full_frame_support: 1, minimum_aperture: 2.8, maximum_aperture: 2.8, minimum_focal_length: 24, maximum_focal_length: 70, type: '標準ズーム', focus_system: 'AF/MF')
+

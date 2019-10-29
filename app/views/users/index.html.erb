@@ -1,0 +1,19 @@
+<div class="container">
+	<h2>ユーザー検索</h2>
+	<hr>
+	<div class="row">
+		<%= form_tag(users_path, :method => 'get') do %>
+		<%= text_field_tag :search %>
+		<%= submit_tag "ユーザー検索", :account_id => nil, class:"btn btn-default btn-sm" %>
+		<% end %>
+	</div>
+	<div class="row">
+		<% @users.each do |user| %>
+		<table class="table table-bordered">
+			<tr>
+				<td><%= user.name %>(@<%= link_to "#{user.account_id}", user_path(user.id) %>)</td>
+			</tr>
+		</table>
+		<% end %>
+	</div>
+</div>

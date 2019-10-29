@@ -5,13 +5,13 @@
 		<%= notice %>
 		<%= form_for @manufacturer do |f| %>
 		<%= f.text_field :manufacturer %>
-		<%= f.submit %>
+		<%= f.submit "メーカーを追加", class:"btn btn-primary btn-sm" %>
 		<% end %>
 	</div>
 	<h3>メーカー一覧</h3>
 	<% @manufacturers.each do |manufacturer| %>
 	<div class="pull-left table-responsive col-xs-3">
-		<table class="table table-borderd">
+		<table class="table table-bordered">
 			<tr>
 				<td><%= link_to "#{manufacturer.manufacturer}", edit_manufacturer_path(manufacturer.id) %></td>
 			</tr>

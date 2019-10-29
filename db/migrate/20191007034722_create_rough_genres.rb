@@ -6,11 +6,6 @@ class CreateRoughGenres < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    rename_column :photos, :body, :body_id
-    rename_column :photos, :lens, :lens_id
-    rename_column :photos, :genre, :genre_id
-
-  	add_column :photos, :user_id, :string
   	add_column :bodies, :name, :string
   end
 end
