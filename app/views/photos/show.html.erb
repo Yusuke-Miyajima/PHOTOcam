@@ -41,6 +41,21 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-2">
+			<h4>使用機材</h4>
+			<table class="table table-bordered">
+				<tr>
+					<td>ボディ</td>
+					<td><strong><%= link_to "#{@photo.body.name}", body_path(@photo.body.id) %></strong></td>
+				</tr>
+				<tr>
+					<td>レンズ</td>
+					<td><strong><%= link_to "#{@photo.lens_system.name}", lens_system_path(@photo.lens_system.id) %></strong></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
 			<%= form_for [@photo, @comment] do |f| %>
 			<%= f.text_area :comment, class:"form-comtrol" %>
 			<%= f.submit "コメントを送信", class:"btn btn-default" %>

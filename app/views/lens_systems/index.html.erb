@@ -1,64 +1,88 @@
-<div class="container">
+<div class="container" style="margin-bottom: 100px;">
 	<h2>レンズ作例</h2>
 	<%= notice %>
 	<div class="row">
-		<table class="table table-bordered">
+		<table class="table">
 			<thred>
 				<tr>
-					<th><%= link_to "#{@r_lenses.first.manufacturer.manufacturer} #{@r_lenses.first.name}", lens_system_path(@r_lenses.first.id) %></th>
+					<th><%= link_to "#{@first_lens.manufacturer.manufacturer} #{@first_lens.name}", lens_system_path(@first_lens.id) %></th>
 				</tr>
 			</thred>
 			<tbody>
-				<% if @first_photos.exists? %>
 				<tr>
-					<% @first_photos.each do |photo| %>
 					<td>
-						<%= image_tag photo.image, :width => '18%', :height => 'auto' %><br>
-						<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
-						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						<%= image_tag @first_first_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@first_first_lens_photo.title}", photo_path(@first_first_lens_photo.id) %>
+						(@<%= link_to "#{@first_first_lens_photo.user.account_id}", user_path(@first_first_lens_photo.user.id) %>)
 					</td>
-					<% end %>
+					<td>
+						<%= image_tag @second_first_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@second_first_lens_photo.title}", photo_path(@second_first_lens_photo.id) %>
+						(@<%= link_to "#{@second_first_lens_photo.user.account_id}", user_path(@second_first_lens_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @third_first_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@third_first_lens_photo.title}", photo_path(@third_first_lens_photo.id) %>
+						(@<%= link_to "#{@third_first_lens_photo.user.account_id}", user_path(@third_first_lens_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fourth_first_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fourth_first_lens_photo.title}", photo_path(@fourth_first_lens_photo.id) %>
+						(@<%= link_to "#{@fourth_first_lens_photo.user.account_id}", user_path(@fourth_first_lens_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fifth_first_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fifth_first_lens_photo.title}", photo_path(@fifth_first_lens_photo.id) %>
+						(@<%= link_to "#{@fifth_first_lens_photo.user.account_id}", user_path(@fifth_first_lens_photo.user.id) %>)
+					</td>
 				</tr>
-				<% else %>
-				<tr>
-					<td>写真が投稿されていません。</td>
-				</tr>
-				<% end %>
 			</tbody>
 		</table>
 	</div>
 	<div class="row">
-		<table class="table table-bordered">
+		<table class="table">
 			<thred>
 				<tr>
-					<th><%= link_to "#{@r_lenses.second.manufacturer.manufacturer} #{@r_lenses.second.name}", lens_system_path(@r_lenses.second.id) %></th>
+					<th><%= link_to "#{@first_lens.manufacturer.manufacturer} #{@first_lens.name}", lens_system_path(@first_lens.id) %></th>
 				</tr>
 			</thred>
 			<tbody>
-				<% if @second_photos.exists? %>
 				<tr>
-					<% @second_photos.each do |photo| %>
 					<td>
-						<%= image_tag photo.image, :width => '18%', :height => 'auto' %><br>
-						<%= link_to "#{photo.title}", photo_path(photo.id) %><br>
-						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						<%= image_tag @first_second_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@first_second_lens_photo.title}", photo_path(@first_second_lens_photo.id) %>
+						(@<%= link_to "#{@first_second_lens_photo.user.account_id}", user_path(@first_second_lens_photo.user.id) %>)
 					</td>
-					<% end %>
+					<td>
+						<%= image_tag @second_second_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@second_second_lens_photo.title}", photo_path(@second_second_lens_photo.id) %>
+						(@<%= link_to "#{@second_second_lens_photo.user.account_id}", user_path(@second_second_lens_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @third_second_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@third_second_lens_photo.title}", photo_path(@third_second_lens_photo.id) %>
+						(@<%= link_to "#{@third_second_lens_photo.user.account_id}", user_path(@third_second_lens_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fourth_second_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fourth_second_lens_photo.title}", photo_path(@fourth_second_lens_photo.id) %>
+						(@<%= link_to "#{@fourth_second_lens_photo.user.account_id}", user_path(@fourth_second_lens_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fifth_second_lens_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fifth_second_lens_photo.title}", photo_path(@fifth_second_lens_photo.id) %>
+						(@<%= link_to "#{@fifth_second_lens_photo.user.account_id}", user_path(@fifth_second_lens_photo.user.id) %>)
+					</td>
 				</tr>
-				<% else %>
-				<tr>
-					<td>写真が投稿されていません。</td>
-				</tr>
-				<% end %>
 			</tbody>
 		</table>
 	</div>
 	<div class="row">
 		<h2>レンズ一覧(メーカー順)</h2>
-		<table class="table table-bordered">
+		<table class="table">
 			<tbody>
 				<tr>
-					<% @lenses.each do |lens| %>
+					<% @all_lenses.each do |lens| %>
 					<td class="pull-left col-xs-4"><%= link_to "#{lens.manufacturer.manufacturer} #{lens.name}", lens_system_path(lens.id) %></td>
 					<% end %>
 				</tr>

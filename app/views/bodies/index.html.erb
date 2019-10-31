@@ -1,29 +1,41 @@
-<div class="container">
+<div class="container" style="margin-bottom: 100px;">
 	<h2>ボディ作例</h2>
 	<%= notice %>
 	<div class="row">
 		<table class="table">
 			<thred>
 				<tr>
-					<th><%= link_to "#{@r_bodies.first.manufacturer.manufacturer} #{@r_bodies.first.name}", body_path(@r_bodies.first.id) %></th>
+					<th><%= link_to "#{@first_body.manufacturer.manufacturer} #{@first_body.name}", body_path(@first_body.id) %></th>
 				</tr>
 			</thred>
 			<tbody>
-				<% if @first_photos.exists? %>
 				<tr>
-					<% @first_photos.each do |photo| %>
 					<td>
-						<%= image_tag photo.image, size:"200x200" %><br>
-						<%= link_to "#{photo.title}", photo_path(photo.id) %>
-						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						<%= image_tag @first_first_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@first_first_body_photo.title}", photo_path(@first_first_body_photo.id) %>
+						(@<%= link_to "#{@first_first_body_photo.user.account_id}", user_path(@first_first_body_photo.user.id) %>)
 					</td>
-					<% end %>
+					<td>
+						<%= image_tag @second_first_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@second_first_body_photo.title}", photo_path(@second_first_body_photo.id) %>
+						(@<%= link_to "#{@second_first_body_photo.user.account_id}", user_path(@second_first_body_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @third_first_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@third_first_body_photo.title}", photo_path(@third_first_body_photo.id) %>
+						(@<%= link_to "#{@third_first_body_photo.user.account_id}", user_path(@third_first_body_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fourth_first_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fourth_first_body_photo.title}", photo_path(@fourth_first_body_photo.id) %>
+						(@<%= link_to "#{@fourth_first_body_photo.user.account_id}", user_path(@fourth_first_body_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fifth_first_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fifth_first_body_photo.title}", photo_path(@fifth_first_body_photo.id) %>
+						(@<%= link_to "#{@fifth_first_body_photo.user.account_id}", user_path(@fifth_first_body_photo.user.id) %>)
+					</td>
 				</tr>
-				<% else %>
-				<tr>
-					<td>写真が投稿されていません。</td>
-				</tr>
-				<% end %>
 			</tbody>
 		</table>
 	</div>
@@ -31,25 +43,37 @@
 		<table class="table">
 			<thred>
 				<tr>
-					<th><%= link_to "#{@r_bodies.second.manufacturer.manufacturer} #{@r_bodies.second.name}", body_path(@r_bodies.second.id) %></th>
+					<th><%= link_to "#{@first_body.manufacturer.manufacturer} #{@first_body.name}", body_path(@first_body.id) %></th>
 				</tr>
 			</thred>
 			<tbody>
-				<% if @second_photos.exists? %>
 				<tr>
-					<% @second_photos.each do |photo| %>
 					<td>
-						<%= image_tag photo.image, size:"200x200" %><br>
-						<%= link_to "#{photo.title}", photo_path(photo.id) %>
-						(@<%= link_to "#{photo.user.account_id}", user_path(photo.user.id) %>)
+						<%= image_tag @first_second_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@first_second_body_photo.title}", photo_path(@first_second_body_photo.id) %>
+						(@<%= link_to "#{@first_second_body_photo.user.account_id}", user_path(@first_second_body_photo.user.id) %>)
 					</td>
-					<% end %>
+					<td>
+						<%= image_tag @second_second_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@second_second_body_photo.title}", photo_path(@second_second_body_photo.id) %>
+						(@<%= link_to "#{@second_second_body_photo.user.account_id}", user_path(@second_second_body_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @third_second_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@third_second_body_photo.title}", photo_path(@third_second_body_photo.id) %>
+						(@<%= link_to "#{@third_second_body_photo.user.account_id}", user_path(@third_second_body_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fourth_second_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fourth_second_body_photo.title}", photo_path(@fourth_second_body_photo.id) %>
+						(@<%= link_to "#{@fourth_second_body_photo.user.account_id}", user_path(@fourth_second_body_photo.user.id) %>)
+					</td>
+					<td>
+						<%= image_tag @fifth_second_body_photo.image, size:"200x200" %><br>
+						<%= link_to "#{@fifth_second_body_photo.title}", photo_path(@fifth_second_body_photo.id) %>
+						(@<%= link_to "#{@fifth_second_body_photo.user.account_id}", user_path(@fifth_second_body_photo.user.id) %>)
+					</td>
 				</tr>
-					<% else %>
-					<tr>
-						<td>写真が投稿されていません。</td>
-					</tr>
-				<% end %>
 			</tbody>
 		</table>
 	</div>
@@ -58,7 +82,7 @@
 		<table class="table table-bordered">
 			<tbody>
 				<tr>
-					<% @bodies.each do |body| %>
+					<% @all_bodies.each do |body| %>
 					<td class="pull-left col-xs-3"><%= link_to "#{body.manufacturer.manufacturer} #{body.name}", body_path(body.id) %></td>
 					<% end %>
 				</tr>

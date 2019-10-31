@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_031641) do
+ActiveRecord::Schema.define(version: 2019_10_30_040248) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_031641) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string "title"
-    t.text "caption"
+    t.string "title", default: "title"
+    t.text "caption", default: "caption"
     t.integer "user_id"
     t.integer "body_id", default: 1
     t.integer "lens_system_id", default: 1

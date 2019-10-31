@@ -1,9 +1,47 @@
 class LensSystemsController < ApplicationController
 	def index
-		@lenses = LensSystem.where.not(id: '1')
-		@r_lenses = @lenses.order("RANDOM()").limit(2)
-		@first_photos = @r_lenses.first.photos.order("RANDOM()").limit(5)
-		@second_photos = @r_lenses.second.photos.order("RANDOM()").limit(5)
+		@all_lenses = LensSystem.where.not(id: '1')
+		@own_photo_lens = Body.joins(:photos).distinct
+		@lenses = []
+		@own_photo_lens.each do |le|
+			@lenses << le.id
+		end
+		a = @lenses.sample
+		@first_lens = @own_photo_lens.find_by(id:a)
+		b = @lenses.sample
+		@second_lens = @own_photo_lens.find_by(id:b)
+
+		@first_lens_photo = @first_lens.photos
+		@first_lens_photos = []
+		@first_lens_photo.each do |f_le|
+			@first_lens_photos << f_le.id
+		end
+		flp_a = @first_lens_photos.sample
+		@first_first_lens_photo = @first_lens_photo.find_by(id:flp_a)
+		flp_b = @first_lens_photos.sample
+		@second_first_lens_photo = @first_lens_photo.find_by(id:flp_b)
+		flp_c = @first_lens_photos.sample
+		@third_first_lens_photo = @first_lens_photo.find_by(id:flp_c)
+		flp_d = @first_lens_photos.sample
+		@fourth_first_lens_photo = @first_lens_photo.find_by(id:flp_d)
+		flp_e = @first_lens_photos.sample
+		@fifth_first_lens_photo = @first_lens_photo.find_by(id:flp_e)
+
+		@second_lens_photo = @second_lens.photos
+		@second_lens_photos = []
+		@second_lens_photo.each do |s_le|
+			@second_lens_photos << s_le.id
+		end
+		slp_a = @second_lens_photos.sample
+		@first_second_lens_photo = @second_lens_photo.find_by(id:slp_a)
+		slp_b = @second_lens_photos.sample
+		@second_second_lens_photo = @second_lens_photo.find_by(id:slp_b)
+		slp_c = @second_lens_photos.sample
+		@third_second_lens_photo = @second_lens_photo.find_by(id:slp_c)
+		slp_d = @second_lens_photos.sample
+		@fourth_second_lens_photo = @second_lens_photo.find_by(id:slp_d)
+		slp_e = @second_lens_photos.sample
+		@fifth_second_lens_photo = @second_lens_photo.find_by(id:slp_e)
 	end
 
 	def show
